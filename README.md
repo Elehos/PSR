@@ -1,4 +1,1 @@
 # StringGenerator
-
-# Utsukushi
-## hoooooooooooo
