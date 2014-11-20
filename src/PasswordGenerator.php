@@ -65,7 +65,8 @@ class PasswordGenerator
                 $char = self::$passwordCharEasy.self::$passwordCharMedium.self::$passwordCharHard;
         }
 
-        $password ='';
+        $password = $char = '';
+
 
         for ($i =0; $i < $length; $i++) {
             $password .= mb_substr($char, mt_rand(0,(mb_strlen($char)-1)), 1);
