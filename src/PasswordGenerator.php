@@ -41,19 +41,14 @@ class PasswordGenerator
      */
     public static function getRandomString($number = null, $strength = self::PASSWORD_MEDIUM)
     {
-        if (!in_array($strength, [
+        if (false === in_array($strength, [
             self::PASSWORD_EASY,
             self::PASSWORD_HARD,
             self::PASSWORD_MEDIUM,
         ]))
             throw new \Exception('Bad strength!');
 
-        $length = (is_null($number))
-            ? self::$passwordDefaultLength
-            : (0 ==(int)$number)
-                ? self::$passwordDefaultLength
-                :(int)$number;
-
+        $length   = (null === ($number)) ? self::$passwordDefaultLength : (0 ==(int) $number) ? self::$passwordDefaultLength :(int) $number;
         $password = $char = '';
 
         switch ($strength) {
@@ -71,16 +66,10 @@ class PasswordGenerator
 
 
         for ($i =0; $i < $length; $i++) {
-            $password .= mb_substr($char, mt_rand(0,(mb_strlen($char)-1)), 1);
+            $password .= mb_substr($char, mt_rand(0,(mb_strlen($char) - 1)), 1);
         }
 
         return $password;
 
     }
-
-    /*public function random (){
-        $str = 'abcdef';
-        $shuffled = str_shuffle($str);
-        echo $shuffled;
-    }*/
-} 
+}
