@@ -68,7 +68,7 @@ class PasswordGenerator
         $password ='';
 
         for ($i =0; $i < $length; $i++) {
-            $password .= substr($char, mt_rand(0,(strlen($char)-1)), 1);
+            $password .= mb_substr($char, mt_rand(0,(mb_strlen($char)-1)), 1);
         }
 
         return $password;
